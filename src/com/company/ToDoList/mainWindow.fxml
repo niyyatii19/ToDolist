@@ -1,0 +1,75 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<BorderPane fx:id="mainBorderPane" fx:controller="com.company.ToDoList.Controller"
+            xmlns:fx="http://javafx.com/fxml" >
+    <top>
+
+        <VBox>
+            <MenuBar>
+                <Menu text="File">
+                    <items>
+                        <MenuItem text=" New " onAction="#showDialog"></MenuItem>
+                        <SeparatorMenuItem></SeparatorMenuItem>
+                        <MenuItem text=" Exit " onAction="#handleExit"></MenuItem>
+                    </items>
+                </Menu>
+            </MenuBar>
+            <HBox>
+                <Button   onAction="#showDialog">
+                    <tooltip>
+                        <Tooltip text="Add a new Item"></Tooltip>
+                    </tooltip>
+                    <graphic>
+                        <ImageView>
+                            <Image url="@/toolbarButtonGraphics/general/New24.gif"></Image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button   onAction="#handleExit">
+                    <tooltip>
+                        <Tooltip text="Add a new Item"></Tooltip>
+                    </tooltip>
+                    <graphic>
+                        <ImageView>
+                            <Image url="@/toolbarButtonGraphics/general/Remove24.gif"></Image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+            <ToggleButton text="Show today's todo items" fx:id="toggleButton" onAction="#handleToggle">
+                <tooltip>
+                    <Tooltip text="Show all items"></Tooltip>
+                </tooltip>
+            </ToggleButton>
+            </HBox>
+        </VBox>
+
+    </top>
+    <left>
+        <ListView  fx:id="todolist"  onKeyPressed="#handleKeyPress">
+
+        </ListView>
+    </left>
+    <center>
+        <VBox     style="-fx-background-color:white">
+            <TextArea fx:id="details"  VBox.vgrow="ALWAYS" wrapText="true">
+
+            </TextArea>
+        <HBox>
+            <Label text="Due: ">
+                <font>
+                    <Font name="Times New Roman Bold" size="20"></Font>
+                </font>
+            </Label>
+            <Label fx:id="deadline">
+                <font>
+                    <Font name="Times New Roman Bold" size="20"></Font>
+                </font>
+            </Label>
+        </HBox>
+        </VBox>
+    </center>
+</BorderPane>
